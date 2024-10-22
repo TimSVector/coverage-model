@@ -22,15 +22,19 @@ public final class TestCase implements Serializable {
     private final String type;
     private final String message;
     private final String description;
+    private final String fileName;
+    private final String lineNum;
 
     private TestCase(final String testName, final String className, final TestResult result,
-            final String type, final String message, final String description) {
+            final String type, final String message, final String description, final String fileName, final String lineNum) {
         this.testName = testName;
         this.className = className.intern();
         this.result = result;
         this.type = type;
         this.message = message;
         this.description = description;
+        this.fileName = fileName;
+        this.lineNum = lineNum;
     }
 
     public String getTestName() {
@@ -57,6 +61,14 @@ public final class TestCase implements Serializable {
         return description;
     }
 
+    public String getFileName() {
+        return fileName;
+    }
+
+    public String getLineNum() {
+        return lineNum;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) {
@@ -80,6 +92,12 @@ public final class TestCase implements Serializable {
         if (!type.equals(testCase.type)) {
             return false;
         }
+        if (!fileName.equals(testCase.fileName)) {
+            return false;
+        }
+        if (!lineNum.equals(testCase.lineNum)) {
+            return false;
+        }
         if (!message.equals(testCase.message)) {
             return false;
         }
@@ -89,7 +107,8 @@ public final class TestCase implements Serializable {
     @Override @Generated
     public String toString() {
         return "TestCase{testName='" + testName + '\'' + ", className='" + className + '\'' + ", status=" + result
-                + ", type='" + type + '\'' + ", message='" + message + '\'' + ", description='" + description + '\''
+                + ", type='"     + type     + '\'' + ", message='" + message + '\'' + ", description='" + description + '\''
+                + ", fileName='" + fileName + '\'' + ", lineNum='" + lineNum + '\''
                 + '}';
     }
 
@@ -101,6 +120,8 @@ public final class TestCase implements Serializable {
         value = 31 * value + type.hashCode();
         value = 31 * value + message.hashCode();
         value = 31 * value + description.hashCode();
+        value = 31 * value + fileName.hashCode();
+        value = 31 * value + lineNum.hashCode();
         return value;
     }
 
@@ -115,6 +136,8 @@ public final class TestCase implements Serializable {
         private String type = StringUtils.EMPTY;
         private String message = StringUtils.EMPTY;
         private String description = StringUtils.EMPTY;
+        private String fileName = StringUtils.EMPTY;
+        private String lineNum = StringUtils.EMPTY;
 
         @CanIgnoreReturnValue
         public TestCaseBuilder withStatus(final TestResult status) {
@@ -159,6 +182,20 @@ public final class TestCase implements Serializable {
         }
 
         @CanIgnoreReturnValue
+        public TestCaseBuilder withFileName(final String fileName) {
+            this.fileName = fileName;
+
+            return this;
+        }
+
+        @CanIgnoreReturnValue
+        public TestCaseBuilder withLineNum(final String lineNum) {
+            this.lineNum = lineNum;
+
+            return this;
+        }
+
+        @CanIgnoreReturnValue
         public TestCaseBuilder withFailure() {
             status = TestResult.FAILED;
 
@@ -166,7 +203,7 @@ public final class TestCase implements Serializable {
         }
 
         public TestCase build() {
-            return new TestCase(testName, className, status, type, message, description);
+            return new TestCase(testName, className, status, type, message, description, fileName, lineNum);
         }
     }
 

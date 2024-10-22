@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite errors="2" tests="3" failures="0" name="DATABASE_C" id="1">
+        <testcase name="database.Get_Table_Record.BASIS-PATH-001" classname="database" time="0.0" file="2018_fast_test/tutorial/c/database.c" line="6">
+            <failure type="failure" message="Testcase failed"/>
+
+            <system-out>
+FAIL 0 / 1  &#xA;&#xA;Execution Report:&#xA; Start of Test Case:   BASIS-PATH-001&#xA;&#xA;----------------------------------------------------------------------&#xA;-----                          Event 1                           -----&#xA;----------------------------------------------------------------------&#xA;   Calling UUT: database.c&#xA;     Subprogram: Get_Table_Record&#xA;       Table =&gt; 0&#xA;&#xA;&#xA;----------------------------------------------------------------------&#xA;-----                          Event 2                           -----&#xA;----------------------------------------------------------------------&#xA;   Returned from UUT: database.c&#xA;     Subprogram: Get_Table_Record&#xA;       Table =&gt; 0&#xA;&#xA;&#xA;   ---------------------------- Global Data -----------------------------:&#xA;   UNIT: USER_GLOBALS_VCAST:&#xA;     Globals::&#xA;       VECTORCAST_INT2 &lt; 1                                        [0] &#xA;&#xA;UUT Returned control to Driver ...&#xA;&#xA;End of Test Case&#xA;&#xA;&#xA;&#xA;Test Status                                                       PASS&#xA;&#xA;
+            </system-out>
+        </testcase>
+
+        <testcase name="database.Update_Table_Record.BASIS-PATH-001" classname="database" time="0.0" file="2018_fast_test/tutorial/c/database.c" line="11">
+            
+            <system-out>
+PASS 0 / 0  &#xA;&#xA;Execution Report:&#xA; Start of Test Case:   BASIS-PATH-001&#xA;&#xA;----------------------------------------------------------------------&#xA;-----                          Event 1                           -----&#xA;----------------------------------------------------------------------&#xA;   Calling UUT: database.c&#xA;     Subprogram: Update_Table_Record&#xA;       Table =&gt; 0&#xA;&#xA;&#xA;----------------------------------------------------------------------&#xA;-----                          Event 2                           -----&#xA;----------------------------------------------------------------------&#xA;   Returned from UUT: database.c&#xA;     Subprogram: Update_Table_Record&#xA;       Table =&gt; 0&#xA;&#xA;&#xA;   UUT Returned control to Driver ...&#xA;&#xA;End of Test Case&#xA;&#xA;&#xA;&#xA;Test Status                                                       PASS&#xA;&#xA;
+            </system-out>
+        </testcase>
+
+        <testcase name="&lt;&lt;INIT&gt;&gt;.&lt;&lt;INIT&gt;&gt;.&lt;&lt;INIT&gt;&gt;.001" classname="" time="0.0"  >
+
+            <failure type="failure" message="Testcase failed"/>
+
+            <system-out>
+                FAIL 0 / 1  &#xA;&#xA;Execution Report:&#xA; Start of Test Case:   &lt;&lt;INIT&gt;&gt;.001&#xA;&#xA;----------------------------------------------------------------------&#xA;-----                          Event 1                           -----&#xA;----------------------------------------------------------------------&#xA;   Calling UUT: database.c&#xA;     Subprogram: &lt;&lt;INIT&gt;&gt;&#xA;&#xA;&#xA;----------------------------------------------------------------------&#xA;-----                          Event 2                           -----&#xA;----------------------------------------------------------------------&#xA;   Returned from UUT: database.c&#xA;     Subprogram: &lt;&lt;INIT&gt;&gt;&#xA;&#xA;---------------------------- Global Data -----------------------------&#xA;&#xA;   UNIT: USER_GLOBALS_VCAST&#xA;     Globals:&#xA;       VECTORCAST_INT2 =&gt; 1                                        [0]&#xA;&#xA;&#xA;   UUT Returned control to Driver ...&#xA;&#xA;End of Test Case&#xA;&#xA;&#xA;&#xA;Expected Results matched 0%                           ( 0 / 1 )   FAIL&#xA;Test Status                                                       FAIL&#xA;&#xA;
+            </system-out>
+        </testcase>
+
+    </testsuite>
+</testsuites>

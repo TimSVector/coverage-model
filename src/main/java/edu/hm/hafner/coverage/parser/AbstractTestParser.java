@@ -29,6 +29,8 @@ abstract class AbstractTestParser extends CoverageParser {
     static final QName FAILURE = new QName("failure");
     static final QName MESSAGE = new QName("message");
     static final QName CLASS_NAME = new QName("classname");
+    static final QName FILE_NAME = new QName("file");
+    static final QName LINE_NUM = new QName("line");
 
     private final QName testSuite;
     private final QName testCase;

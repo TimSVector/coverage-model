@@ -106,6 +106,17 @@ class JunitParserTest extends AbstractParserTest {
     }
 
     @Test
+    void shouldReadFileNameLineNums() {
+        var tree = readJunitReport("junit_with_filename_linenumber.xml");
+        assertThat(getPackage(tree)).hasName(EMPTY);
+        assertThat(getFirstClass(tree)).hasName("database");
+        assertThat(getFirstTest(tree).getTestName()).contains("database.Get_Table_Record.BASIS-PATH-001");
+        assertThat(getFirstTest(tree).getFileName()).contains("2018_fast_test/tutorial/c/database.c");
+        assertThat(getFirstTest(tree).getLineNum()).contains("6");
+        assertThat(tree.aggregateValues()).contains(new TestCount(3));
+    }
+
+    @Test
     void shouldReadJavaClassNames() {
         var tree = readJunitReport("junit.xml");
         assertThat(getPackage(tree)).hasName("com.example.jenkinstest");

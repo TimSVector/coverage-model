@@ -10,6 +10,8 @@ import edu.hm.hafner.coverage.ModuleNode;
 import edu.hm.hafner.coverage.TestCase;
 import edu.hm.hafner.coverage.TestCase.TestCaseBuilder;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * Parses reports in the JUnit format into a Java object model.
  *
@@ -61,6 +63,10 @@ public class JunitParser extends AbstractTestParser {
             else if (event.isEndElement() && TEST_CASE.equals(event.asEndElement().getName())) {
                 var className = getOptionalValueOf(testCaseElement, CLASS_NAME).orElse(suiteName);
                 builder.withClassName(className);
+                var testFileName = getOptionalValueOf(testCaseElement, FILE_NAME).orElse(StringUtils.EMPTY);
+                builder.withFileName(testFileName);
+                var lineNum = getOptionalValueOf(testCaseElement, LINE_NUM).orElse("0");
+                builder.withLineNum(lineNum);
                 var packageName = createPackageForClass(className);
                 var packageNode = root.findOrCreatePackageNode(packageName);
                 var classNode = packageNode.findOrCreateClassNode(className);
